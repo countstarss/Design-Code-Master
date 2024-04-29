@@ -1,10 +1,3 @@
-//
-//  Course.swift
-//  DesignCodeiOS15
-//
-//  Created by Meng To on 2021-12-01.
-//
-
 import SwiftUI
 
 struct Course: Identifiable {

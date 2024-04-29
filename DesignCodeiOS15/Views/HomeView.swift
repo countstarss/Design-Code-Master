@@ -1,9 +1,10 @@
 //
-//  HomeView.swift
+//  Model.swift
 //  DesignCodeiOS15
 //
-//  Created by Meng To on 2021-11-10.
+//  Created by 王佩豪 on 2024/4/29.
 //
+
 
 import SwiftUI
 
@@ -13,6 +14,7 @@ struct HomeView: View {
     @State var show = false
     @State var showStatusBar = true
     @State var selectedID = UUID()
+    @EnvironmentObject var model : Model
     
     var body: some View {
         ZStack {
@@ -113,6 +115,7 @@ struct HomeView: View {
                 .onTapGesture {
                     withAnimation(.openCard) {
                         show.toggle()
+                        model.showDetail.toggle()
                         showStatusBar = false
                         selectedID = course.id
                     }
@@ -127,7 +130,7 @@ struct HomeView: View {
                 .frame(height:300)
                 .cornerRadius(30)
                 .shadow(color:Color("Shadow"),radius: 20,x:0,y:10)
-                .opacity(0.3)
+                .opacity(0)
             .padding(.horizontal,20)
         }
     }
@@ -149,6 +152,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .preferredColorScheme(.dark)
+            .environmentObject(Model())
         HomeView()
     }
 }

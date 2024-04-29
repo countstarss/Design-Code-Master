@@ -1,14 +1,15 @@
 //
-//  ContentView.swift
+//  Model.swift
 //  DesignCodeiOS15
 //
-//  Created by Meng To on 2021-10-14.
+//  Created by 王佩豪 on 2024/4/29.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
+    @EnvironmentObject var model : Model
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -25,6 +26,8 @@ struct ContentView: View {
             }
             
             TabBar()
+                // 如果点开detail,就隐藏TabBar
+                .offset(y: model.showDetail ? 200 : 0)
         }
         .safeAreaInset(edge: .bottom) {
             Color.clear.frame(height: 44)
@@ -36,9 +39,10 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
+                .environmentObject(Model())
             ContentView()
                 .preferredColorScheme(.dark)
-                .previewDevice("iPhone 13 mini")
+                .environmentObject(Model())
         }
     }
 }
