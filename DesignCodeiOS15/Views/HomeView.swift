@@ -31,11 +31,15 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 20)
                 
-                if !show {
-                    cards
-                }else{
-                    placeholder
-                }
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 300))])
+                    {
+                        if !show {
+                            cards
+                        }else{
+                            placeholder
+                        }
+                    }
+//                    .padding(20)
             }
             .coordinateSpace(name: "scroll")
             .safeAreaInset(edge: .top, content: {
@@ -86,6 +90,8 @@ struct HomeView: View {
                     
                     FeaturedItem(course: course)
                         .padding(.vertical, 40)
+//                        .frame(width:350)
+                        .frame(maxWidth: .infinity)
                         .rotation3DEffect(.degrees(minX / -10), axis: (x: 0, y: 1, z: 0))
                         .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
                         .blur(radius: abs(minX / 40))

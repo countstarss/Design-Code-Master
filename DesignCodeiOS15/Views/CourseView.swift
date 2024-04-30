@@ -26,7 +26,7 @@ struct CourseView: View {
                     .opacity(appear[2] ? 1 : 0)
             }
             .background(Color("Background"))
-            .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
+            .mask(RoundedRectangle(cornerRadius:30, style: .continuous))
             .shadow(color: .black.opacity(0.3) ,radius: 30, x:2 ,y:10)
             .scaleEffect(viewState.width / -500 + 1)
             .background(.gray.opacity(viewState.width / 100))
@@ -59,6 +59,8 @@ struct CourseView: View {
                 Image(course.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .padding(20)
+                    .frame(maxWidth:500)
                     .matchedGeometryEffect(id: "image\(course.id)", in: namespace)
                     .offset(y:  scrollY > 0 ? scrollY * -0.5 : 0)
                     .scaleEffect(scrollY > -300 ? scrollY / 1000 + 1 : -300 / 1000 + 1)
@@ -71,14 +73,15 @@ struct CourseView: View {
                     .matchedGeometryEffect(id: "background\(course.id)", in: namespace)
                     .offset(y: scrollY > 0 ? -scrollY : 0)
 //                    .scaleEffect(scrollY / 500 + 1)
-                    .scaleEffect(scrollY > -300 ? scrollY / 1000 + 1 : -300 / 1000 + 1)
+                    .scaleEffect(scrollY > 100 ? scrollY / 1000 + 1 : 100 / 1000 + 1)
                     .blur(radius: scrollY / 50)
             )
             .mask(
-                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                RoundedRectangle(cornerRadius: appear[0] ? 0 : 30, style: .continuous)
                     .matchedGeometryEffect(id: "mask\(course.id)", in: namespace)
                     .offset(y: scrollY > 0 ? -scrollY : 0)
-                    .scaleEffect(y: scrollY > -300 ? scrollY / 1000 + 1 : -300 / 1000 + 1)
+//                    .scaleEffect(y: scrollY > -300 ? scrollY / 1000 + 1 : -300 / 1000 + 1)
+//                    .scaleEffect(x: 1000)
             )
             .overlay(
                 overlayContent
