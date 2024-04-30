@@ -1,8 +1,8 @@
 //
-//  AccountView.swift
+//  SearchView.swift
 //  DesignCodeiOS15
 //
-//  Created by Meng To on 2021-10-20.
+//  Created by 王佩豪 on 2024/4/30.
 //
 
 import SwiftUI
@@ -41,13 +41,9 @@ struct AccountView: View {
                 .padding()
                 .background(Circle().fill(.ultraThinMaterial))
                 .background(
-                    HexagonView()
-                        .offset(x: -50, y: -100)
-                )
-                .background(
                     BlobView()
-                        .offset(x: 200, y: 0)
-                        .scaleEffect(0.6)
+                        .offset(x: 10, y: -80)
+                        .scaleEffect(0.8)
                 )
             Text("Meng To")
                 .font(.title.weight(.semibold))
