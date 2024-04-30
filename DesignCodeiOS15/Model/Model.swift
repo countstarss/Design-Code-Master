@@ -10,4 +10,5 @@ import Combine
 
 class Model:ObservableObject{
     @Published var showDetail:Bool = false
+    @Published var showDone:Bool = false
 }

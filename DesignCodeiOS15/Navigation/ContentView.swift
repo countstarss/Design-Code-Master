@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
     @EnvironmentObject var model : Model
+//    @Binding var showDone : Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -20,7 +21,8 @@ struct ContentView: View {
             case .home:
                 HomeView()
             case .explore:
-                AccountView()
+                SearchView()
+                    
             case .notifications:
                 AccountView()
             case .library:
