@@ -13,6 +13,7 @@ struct NavigationBar: View {
     @State var showSearch = false
     @State var showAccount = false
     @EnvironmentObject var model : Model
+    @AppStorage("showModal") var showModal = false
     
     
     var body: some View {
@@ -48,8 +49,9 @@ struct NavigationBar: View {
                 }
                 
                 Button{
-                    
-                    showAccount = true
+                    withAnimation {
+                        showModal = true
+                    }
                 }label:{
                     Image("Avatar Default")
                         .resizable()

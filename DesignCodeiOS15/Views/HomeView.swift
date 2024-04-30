@@ -14,6 +14,8 @@ struct HomeView: View {
     @State var show = false
     @State var showStatusBar = true
     @State var selectedID = UUID()
+    @State var showCource = false
+    @State var selectedIndex = 0
     @EnvironmentObject var model : Model
     
     var body: some View {
@@ -63,6 +65,10 @@ struct HomeView: View {
                 }
             }
         }
+        .sheet(isPresented: $showCource){
+            CourseView(namespace: namespace,course: courses[selectedIndex],show: $showCource)
+                .background(.blue.opacity(0))
+        }
     }
     
     var scrollDetection: some View {
@@ -84,7 +90,7 @@ struct HomeView: View {
     
     var featured: some View {
         TabView {
-            ForEach(featuredCourses) { course in
+            ForEach(Array(featuredCourses.enumerated()), id:\.offset){index, course in
                 GeometryReader { proxy in
                     let minX = proxy.frame(in: .global).minX
                     
@@ -103,8 +109,10 @@ struct HomeView: View {
                                 .offset(x: 32, y: -80)
                                 .offset(x: minX / 2)
                         )
-                    
-//                    Text("\(proxy.frame(in: .global).minX)")
+                        .onTapGesture {
+                            showCource = true
+                            selectedIndex = index
+                        }
                 }
             }
         }
@@ -114,6 +122,7 @@ struct HomeView: View {
             Image("Blob 1")
                 .offset(x: 250, y: -100)
         )
+        
     }
     var cards:some View{
         ForEach(courses) { course in

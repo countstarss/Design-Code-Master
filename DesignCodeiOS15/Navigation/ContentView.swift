@@ -13,6 +13,7 @@ struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
     @EnvironmentObject var model : Model
 //    @Binding var showDone : Bool
+    @AppStorage("showModal") var showModal = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -32,6 +33,30 @@ struct ContentView: View {
             TabBar()
                 // 如果点开detail,就隐藏TabBar
                 .offset(y: model.showDetail ? 200 : 0)
+            
+            if showModal{
+                ZStack {
+                    Color.clear.background(.regularMaterial)
+                        .ignoresSafeArea()
+                    
+                    SignUpView()
+                    
+                    Button {
+                        withAnimation() {
+                            showModal = false
+                        }
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.body.weight(.bold))
+                            .foregroundColor(.secondary)
+                            .padding(8)
+                            .background(.ultraThinMaterial, in: Circle())
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                    .padding(30)
+                }
+                .zIndex(1)
+            }
         }
         .safeAreaInset(edge: .bottom) {
             Color.clear.frame(height: 44)

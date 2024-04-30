@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SearchView: View {
     @State var text = ""
-//    @State var showDone = true
+    @State var show = false
+    @Namespace var namespace
+    @State var selectedIndex = 0
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var model : Model
     
@@ -57,29 +59,43 @@ struct SearchView: View {
             }label: {
                 model.showDone ? Text("Done") : Text("")
             })
+            .sheet(isPresented: $show){
+                CourseView(namespace: namespace,course: courses[selectedIndex], show: $show)
+            }
         }
     }
     var content :some View{
-        ForEach(courses.filter{ $0.title.contains(text) || text == ""}){ item in
-            HStack (alignment: .top,spacing:12){
-                Image(item.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width:54,height: 54)
-                    .background(Color("Background"))
-                    .mask(RoundedRectangle(cornerRadius: 10, style: RoundedCornerStyle.continuous))
-                VStack (alignment:.leading){
-                    Text(item.title).bold()
-                    Text(item.text)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity,alignment:.leading)
-                        .multilineTextAlignment(.leading)
-                }
+        ForEach(Array(courses.enumerated()), id:\.offset){index, item in
+            if item.title.contains(text) || text == "" {
+                //添加Divider
+                if index != 0 { Divider() }
+                Button{
+                    show = true
+                    selectedIndex = index
+                }label: {
+                    HStack (alignment: .top,spacing:12){
+                        Image(item.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:54,height: 54)
+                            .background(Color("Background"))
+                            .mask(RoundedRectangle(cornerRadius: 10, style: RoundedCornerStyle.continuous))
+                        VStack (alignment:.leading){
+                            Text(item.title).bold()
+                                .foregroundColor(.primary)
+                            Text(item.text)
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                                .frame(maxWidth: .infinity,alignment:.leading)
+                                .multilineTextAlignment(.leading)
+                        }
+                    }
+                    .padding(.vertical,4)
+                    // 去除list的分隔线
+                .listRowSeparator(.hidden)
             }
-            .padding(.vertical,4)
-            // 去除list的分隔线
-            .listRowSeparator(.hidden)
+            }
+            
         }
     }
 }

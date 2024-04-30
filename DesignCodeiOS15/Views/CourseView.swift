@@ -25,8 +25,11 @@ struct CourseView: View {
                     .padding(.bottom, 200)
                     .opacity(appear[2] ? 1 : 0)
             }
+            .coordinateSpace(name: "scroll")
+            .onAppear{ model.showDetail = true }
+            .onDisappear{ model.showDetail = false }
             .background(Color("Background"))
-            .mask(RoundedRectangle(cornerRadius:30, style: .continuous))
+            .mask(RoundedRectangle(cornerRadius: appear[0] ? 0 : 30  , style: .continuous))
             .shadow(color: .black.opacity(0.3) ,radius: 30, x:2 ,y:10)
             .scaleEffect(viewState.width / -500 + 1)
             .background(.gray.opacity(viewState.width / 100))
@@ -38,16 +41,20 @@ struct CourseView: View {
             button
         }
         .onAppear {
-            fadeIn()
+            withAnimation {
+                fadeIn()
+            }
         }
         .onChange(of: show) { newValue in
-            fadeOut()
+            withAnimation {
+                fadeOut()
+            }
         }
     }
     
     var cover: some View {
         GeometryReader { proxy in
-            let scrollY = proxy.frame(in: .global).minY
+            let scrollY = proxy.frame(in: .named("scroll")).minY
             VStack {
                 Spacer()
             }
