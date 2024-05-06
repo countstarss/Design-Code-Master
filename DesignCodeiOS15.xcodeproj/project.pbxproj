@@ -28,6 +28,9 @@
 		96DA31CE2746A6B1009A8497 /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA31CD2746A6B1009A8497 /* FeaturedItem.swift */; };
 		96DA31D02746A8DF009A8497 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA31CF2746A8DF009A8497 /* NavigationBar.swift */; };
 		DF63A55E2BE861FA00351701 /* AngularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63A55D2BE861FA00351701 /* AngularButtonStyle.swift */; };
+		DF63A5602BE872D600351701 /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63A55F2BE872D600351701 /* InputStyle.swift */; };
+		DF63A5622BE895E400351701 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63A5612BE895E400351701 /* ModalView.swift */; };
+		DF63A5642BE8966B00351701 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63A5632BE8966B00351701 /* SignInView.swift */; };
 		DF9D55162BDF2A1700B5B0B1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9D55152BDF2A1700B5B0B1 /* Model.swift */; };
 		DF9D55182BE0818000B5B0B1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9D55172BE0817F00B5B0B1 /* SearchView.swift */; };
 		DF9D551A2BE090A500B5B0B1 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9D55192BE090A500B5B0B1 /* Suggestion.swift */; };
@@ -57,6 +60,9 @@
 		96DA31CD2746A6B1009A8497 /* FeaturedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedItem.swift; sourceTree = "<group>"; };
 		96DA31CF2746A8DF009A8497 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		DF63A55D2BE861FA00351701 /* AngularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngularButtonStyle.swift; sourceTree = "<group>"; };
+		DF63A55F2BE872D600351701 /* InputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStyle.swift; sourceTree = "<group>"; };
+		DF63A5612BE895E400351701 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		DF63A5632BE8966B00351701 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		DF9D55152BDF2A1700B5B0B1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DF9D55172BE0817F00B5B0B1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DF9D55192BE090A500B5B0B1 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
@@ -92,7 +98,7 @@
 				96246DFF2763A89700D2EA00 /* MatchedView.swift */,
 				96246E032763BBB600D2EA00 /* CourseView.swift */,
 				DF9D55172BE0817F00B5B0B1 /* SearchView.swift */,
-				DF9D551B2BE0E62C00B5B0B1 /* SignUpView.swift */,
+				DF63A5652BE8B29A00351701 /* Modals */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 				96246DF12746C21D00D2EA00 /* AnimatableFontModifier.swift */,
 				96915F1F278F317E00A7DC92 /* Animations.swift */,
 				DF63A55D2BE861FA00351701 /* AngularButtonStyle.swift */,
+				DF63A55F2BE872D600351701 /* InputStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -168,6 +175,16 @@
 				96C9A2D52718864700EF979D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DF63A5652BE8B29A00351701 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				DF9D551B2BE0E62C00B5B0B1 /* SignUpView.swift */,
+				DF63A5612BE895E400351701 /* ModalView.swift */,
+				DF63A5632BE8966B00351701 /* SignInView.swift */,
+			);
+			path = Modals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +269,7 @@
 				96DA31D02746A8DF009A8497 /* NavigationBar.swift in Sources */,
 				DF63A55E2BE861FA00351701 /* AngularButtonStyle.swift in Sources */,
 				969A7F0D273331F200D3F594 /* BlobView.swift in Sources */,
+				DF63A5642BE8966B00351701 /* SignInView.swift in Sources */,
 				96C9A2D12718864400EF979D /* ContentView.swift in Sources */,
 				96246DF82757D28F00D2EA00 /* Course.swift in Sources */,
 				96C9A2CF2718864400EF979D /* DesignCodeiOS15App.swift in Sources */,
@@ -260,9 +278,11 @@
 				DF9D551C2BE0E62C00B5B0B1 /* SignUpView.swift in Sources */,
 				96915F20278F317E00A7DC92 /* Animations.swift in Sources */,
 				96246DEE2746B86600D2EA00 /* PreferenceKeys.swift in Sources */,
+				DF63A5602BE872D600351701 /* InputStyle.swift in Sources */,
 				DF9D55162BDF2A1700B5B0B1 /* Model.swift in Sources */,
 				9688F90B273552F1001C5661 /* TabBar.swift in Sources */,
 				96246DF22746C21D00D2EA00 /* AnimatableFontModifier.swift in Sources */,
+				DF63A5622BE895E400351701 /* ModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
