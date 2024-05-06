@@ -17,12 +17,15 @@ struct SignUpView: View {
     @State var password = ""
     @FocusState var focusedField:Field?
     @State var circleY = -50
+    @State var appear = [false,false,false]
     @EnvironmentObject var model : Model
     
     var body: some View {
         VStack(alignment:.leading,spacing:16) {
             Text("Sign Up")
                 .font(.largeTitle).bold()
+                .opacity(appear[1] ? 1 : 0)
+                .offset(y: appear[1] ? 0 : 40)
             Text("Access 120+ hours of course,tourials and livertreams")
                 .font(.footnote)
             
@@ -80,6 +83,17 @@ struct SignUpView: View {
         .strokeStyle(cornerRadius: 30)
         .onChange(of: focusedField){value in
             withAnimation{circleY = focusedField == .email ? -45 : 10}
+        }
+        .onAppear{
+            withAnimation(.spring){
+                appear[0] = true
+            }
+            withAnimation(.easeOut.delay(0.1)){
+                appear[1] = true
+            }
+            withAnimation(.easeOut.delay(0.2)){
+                appear[2] = true
+            }
         }
     }
     

@@ -12,7 +12,6 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
     @EnvironmentObject var model : Model
-//    @Binding var showDone : Bool
     @AppStorage("showModal") var showModal = false
     
     var body: some View {
@@ -39,21 +38,21 @@ struct ContentView: View {
                     Color.clear.background(.regularMaterial)
                         .ignoresSafeArea()
                     
-                    SignUpView()
+                    ModalView()
                     
-                    Button {
-                        withAnimation() {
-                            showModal = false
-                        }
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.body.weight(.bold))
-                            .foregroundColor(.secondary)
-                            .padding(8)
-                            .background(.ultraThinMaterial, in: Circle())
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                    .padding(30)
+//                    Button {
+//                        withAnimation {
+//                            showModal = false
+//                        }
+//                    } label: {
+//                        Image(systemName: "xmark")
+//                            .font(.body.weight(.bold))
+//                            .foregroundColor(.secondary)
+//                            .padding(8)
+//                            .background(.ultraThinMaterial, in: Circle())
+//                    }
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+//                    .padding(30)
                 }
                 .zIndex(1)
             }
