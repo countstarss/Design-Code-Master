@@ -18,11 +18,29 @@ struct SignUpView: View {
                 Text("Crate a account")
                     .frame(maxWidth:.infinity)
             }
-            .buttonStyle(.bordered)
+            .buttonStyle(.angular)
             //改强调色 使用tint
             .tint(.accentColor)
             .controlSize(.large)
             .frame(maxWidth:.infinity)
+            
+            Group {
+                Text("By clicking on  , ")
+                + Text("**create a account**")
+                    .foregroundColor(.primary.opacity(0.7))
+                + Text("you agree to our **Term Of Service** and [Privacy Policy](https://countstarss.github.io)")
+    
+                HStack{
+                    Text("Already have a account")
+                    Button{
+                        
+                    }label: {
+                        Text("**Sign in**")
+                    }
+                }
+            }
+            .foregroundStyle(.secondary)
+            .font(.footnote)
         }
         .padding(20)
         .background(.ultraThinMaterial,in: RoundedRectangle(cornerRadius: 30, style: .continuous))
