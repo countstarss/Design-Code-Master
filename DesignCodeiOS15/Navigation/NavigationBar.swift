@@ -14,6 +14,7 @@ struct NavigationBar: View {
     @State var showAccount = false
     @EnvironmentObject var model : Model
     @AppStorage("showModal") var showModal = false
+    @AppStorage("isLogin") var isLogin = false
     
     
     var body: some View {
@@ -49,8 +50,13 @@ struct NavigationBar: View {
                 }
                 
                 Button{
-                    withAnimation {
-                        showModal = true
+                    
+                    if isLogin{
+                        showAccount = true
+                    }else{
+                        withAnimation {
+                            showModal = true
+                        }
                     }
                 }label:{
                     AvatarView()

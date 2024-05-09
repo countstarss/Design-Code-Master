@@ -19,6 +19,7 @@ struct SignInView: View {
     @State var circleY = -50
     @State var appear = [false,false,false]
     @EnvironmentObject var model :Model
+    @AppStorage("isLogin") var isLogin = false
     
     var body: some View {
         VStack(alignment:.leading,spacing:16) {
@@ -43,7 +44,9 @@ struct SignInView: View {
                 .textContentType(.password)
                 .focused($focusedField,equals: .password)
                 .shadow(color:focusedField == .password ? Color(.systemPink).opacity(0.3) : Color(.clear), radius: 10)
-            Button{}label: {
+            Button{
+                isLogin = true
+            }label: {
                 Text("Sign In")
                     .frame(maxWidth:.infinity)
             }

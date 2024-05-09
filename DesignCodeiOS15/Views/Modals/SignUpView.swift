@@ -19,6 +19,7 @@ struct SignUpView: View {
     @State var circleY = -50
     @State var appear = [false,false,false]
     @EnvironmentObject var model : Model
+    @AppStorage("isLogin") var isLogin = false
     
     var body: some View {
         VStack(alignment:.leading,spacing:16) {
