@@ -17,6 +17,7 @@ struct HomeView: View {
     @State var showCource = false
     @State var selectedIndex = 0
     @EnvironmentObject var model : Model
+    @AppStorage("isLiteMode") var isLiteMode = true
     
     var body: some View {
         ZStack {
@@ -50,6 +51,7 @@ struct HomeView: View {
             .overlay(
                 NavigationBar(title: "Featured", hasScrolled: $hasScrolled)
             )
+//            .background(Color(UIColor.systemBackground))
             
             if show {
                 details
@@ -67,8 +69,9 @@ struct HomeView: View {
         }
         .sheet(isPresented: $showCource){
             CourseView(namespace: namespace,course: courses[selectedIndex],show: $showCource)
-                .background(.blue.opacity(0))
+                .background(Color(UIColor.systemBackground))
         }
+        .background(Color(UIColor.systemBackground))
     }
     
     var scrollDetection: some View {
@@ -99,8 +102,8 @@ struct HomeView: View {
 //                        .frame(width:350)
                         .frame(maxWidth: .infinity)
                         .rotation3DEffect(.degrees(minX / -10), axis: (x: 0, y: 1, z: 0))
-                        .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
-                        .blur(radius: abs(minX / 40))
+                        .shadow(color: Color("Shadow").opacity(isLiteMode ? 0 : 0.3), radius: 10, x: 0, y: 10)
+                        .blur(radius:isLiteMode ? 0 : abs(minX / 40))
                         .overlay(
                             Image(course.image)
                                 .resizable()

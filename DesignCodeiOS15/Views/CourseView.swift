@@ -15,6 +15,8 @@ struct CourseView: View {
     @EnvironmentObject var model : Model
     @State var viewState : CGSize = .zero
     @State var isDraggable = true
+    @State var showSection = false
+    @State var selectedIndex = 0
     
     var body: some View {
         ZStack {
@@ -28,11 +30,12 @@ struct CourseView: View {
             .coordinateSpace(name: "scroll")
             .onAppear{ model.showDetail = true }
             .onDisappear{ model.showDetail = false }
-            .background(Color("Background"))
-            .mask(RoundedRectangle(cornerRadius: appear[0] ? 0 : 30  , style: .continuous))
+            .background(Color(UIColor.systemBackground))
+            .mask(RoundedRectangle(cornerRadius: 10  , style: .continuous))
             .shadow(color: .black.opacity(0.3) ,radius: 30, x:2 ,y:10)
             .scaleEffect(viewState.width / -500 + 1)
-            .background(.gray.opacity(viewState.width / 100))
+//            .background(.gray.opacity(viewState.width / 100))
+            .background(Color(UIColor.systemBackground))
             .background(.ultraThinMaterial)
             .gesture(isDraggable ? drag : nil)
             .ignoresSafeArea()
@@ -84,7 +87,7 @@ struct CourseView: View {
                     .blur(radius: scrollY / 50)
             )
             .mask(
-                RoundedRectangle(cornerRadius: appear[0] ? 0 : 30, style: .continuous)
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .matchedGeometryEffect(id: "mask\(course.id)", in: namespace)
                     .offset(y: scrollY > 0 ? -scrollY : 0)
 //                    .scaleEffect(y: scrollY > -300 ? scrollY / 1000 + 1 : -300 / 1000 + 1)
@@ -100,17 +103,23 @@ struct CourseView: View {
     
     var content: some View {
         VStack(alignment: .leading, spacing: 30) {
-            Text("SwiftUI is hands-down the best way for designers to take a first step into code. ")
-                .font(.title3).fontWeight(.medium)
-            Text("This course")
-                .font(.title).bold()
-            Text("This course is unlike any other. We care about design and want to make sure that you get better at it in the process. It was written for designers and developers who are passionate about collaborating and building real apps for iOS and macOS. While it's not one codebase for all apps, you learn once and can apply the techniques and controls to all platforms with incredible quality, consistency and performance. It's beginner-friendly, but it's also packed with design tricks and efficient workflows for building great user interfaces and interactions.")
-            Text("This year, SwiftUI got major upgrades from the WWDC 2020. The big news is that thanks to Apple Silicon, Macs will be able to run iOS and iPad apps soon. SwiftUI is the only framework that allows you to build apps for all of Apple's five platforms: iOS, iPadOS, macOS, tvOS and watchOS with the same codebase. New features like the Sidebar, Lazy Grid, Matched Geometry Effect and Xcode 12's visual editing tools will make it easier than ever to build for multiple platforms.")
-            Text("Multiplatform app")
-                .font(.title).bold()
-            Text("For the first time, you can build entire apps using SwiftUI only. In Xcode 12, you can now create multi-platform apps with minimal code changes. SwiftUI will automatically translate the navigation, fonts, forms and controls to its respective platform. For example, a sidebar will look differently on the Mac versus the iPad, while using exactly the same code. Dynamic type will adjust for the appropriate platform language, readability and information density. ")
+            ForEach(Array(courseSections.enumerated()),id: \.offset){ index,section in
+//                if index != 0 { Divider() }
+                SectionRow(section: section)
+                    .onTapGesture {
+                        selectedIndex = index
+                        showSection = true
+                    }
+            }
         }
         .padding(20)
+        .background(.ultraThinMaterial , in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .strokeStyle(cornerRadius: 10)
+        .padding(20)
+        .sheet(isPresented: $showSection) {
+            SectionView(section: courseSections[selectedIndex])
+        }
+
     }
     
     var button: some View {

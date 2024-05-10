@@ -29,6 +29,13 @@
 		96DA31D02746A8DF009A8497 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA31CF2746A8DF009A8497 /* NavigationBar.swift */; };
 		DF4CAA222BEC5D6200B996FF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA212BEC5D6100B996FF /* Address.swift */; };
 		DF4CAA242BEC69BC00B996FF /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA232BEC69BC00B996FF /* Coin.swift */; };
+		DF4CAA262BEDA28000B996FF /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA252BEDA28000B996FF /* CircularView.swift */; };
+		DF4CAA282BEDA63C00B996FF /* CourseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA272BEDA63C00B996FF /* CourseSection.swift */; };
+		DF4CAA2A2BEDA68E00B996FF /* SectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA292BEDA68E00B996FF /* SectionRow.swift */; };
+		DF4CAA2C2BEDAD5500B996FF /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA2B2BEDAD5500B996FF /* SectionView.swift */; };
+		DF4CAA2E2BEDF37500B996FF /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA2D2BEDF37500B996FF /* PlayView.swift */; };
+		DF4CAA302BEDFD9800B996FF /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA2F2BEDFD9800B996FF /* ExploreView.swift */; };
+		DF4CAA322BEDFF5C00B996FF /* SmallCourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CAA312BEDFF5C00B996FF /* SmallCourseItem.swift */; };
 		DF63A55E2BE861FA00351701 /* AngularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63A55D2BE861FA00351701 /* AngularButtonStyle.swift */; };
 		DF63A5602BE872D600351701 /* InputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63A55F2BE872D600351701 /* InputStyle.swift */; };
 		DF63A5622BE895E400351701 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63A5612BE895E400351701 /* ModalView.swift */; };
@@ -64,6 +71,13 @@
 		96DA31CF2746A8DF009A8497 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		DF4CAA212BEC5D6100B996FF /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		DF4CAA232BEC69BC00B996FF /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		DF4CAA252BEDA28000B996FF /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		DF4CAA272BEDA63C00B996FF /* CourseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSection.swift; sourceTree = "<group>"; };
+		DF4CAA292BEDA68E00B996FF /* SectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionRow.swift; sourceTree = "<group>"; };
+		DF4CAA2B2BEDAD5500B996FF /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		DF4CAA2D2BEDF37500B996FF /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		DF4CAA2F2BEDFD9800B996FF /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		DF4CAA312BEDFF5C00B996FF /* SmallCourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCourseItem.swift; sourceTree = "<group>"; };
 		DF63A55D2BE861FA00351701 /* AngularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngularButtonStyle.swift; sourceTree = "<group>"; };
 		DF63A55F2BE872D600351701 /* InputStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStyle.swift; sourceTree = "<group>"; };
 		DF63A5612BE895E400351701 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
@@ -104,6 +118,9 @@
 				96246DFF2763A89700D2EA00 /* MatchedView.swift */,
 				96246E032763BBB600D2EA00 /* CourseView.swift */,
 				DF9D55172BE0817F00B5B0B1 /* SearchView.swift */,
+				DF4CAA2B2BEDAD5500B996FF /* SectionView.swift */,
+				DF4CAA2D2BEDF37500B996FF /* PlayView.swift */,
+				DF4CAA2F2BEDFD9800B996FF /* ExploreView.swift */,
 				DF63A5652BE8B29A00351701 /* Modals */,
 			);
 			path = Views;
@@ -117,6 +134,9 @@
 				96DA31CD2746A6B1009A8497 /* FeaturedItem.swift */,
 				96246E012763BACD00D2EA00 /* CourseItem.swift */,
 				DF63A5662BE8CE0600351701 /* AvatarView.swift */,
+				DF4CAA252BEDA28000B996FF /* CircularView.swift */,
+				DF4CAA292BEDA68E00B996FF /* SectionRow.swift */,
+				DF4CAA312BEDFF5C00B996FF /* SmallCourseItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -131,6 +151,7 @@
 				DF9D55192BE090A500B5B0B1 /* Suggestion.swift */,
 				DF4CAA212BEC5D6100B996FF /* Address.swift */,
 				DF4CAA232BEC69BC00B996FF /* Coin.swift */,
+				DF4CAA272BEDA63C00B996FF /* CourseSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,7 +289,9 @@
 			files = (
 				DF9D55182BE0818000B5B0B1 /* SearchView.swift in Sources */,
 				965D0A60273C2AED00158A7A /* HomeView.swift in Sources */,
+				DF4CAA2C2BEDAD5500B996FF /* SectionView.swift in Sources */,
 				9663E8E027206AF200B0DF27 /* AccountView.swift in Sources */,
+				DF4CAA2E2BEDF37500B996FF /* PlayView.swift in Sources */,
 				96246E042763BBB600D2EA00 /* CourseView.swift in Sources */,
 				969A7F0B2733317600D3F594 /* HexagonView.swift in Sources */,
 				DF9D551A2BE090A500B5B0B1 /* Suggestion.swift in Sources */,
@@ -278,16 +301,21 @@
 				96246E002763A89700D2EA00 /* MatchedView.swift in Sources */,
 				9688F90D27355C93001C5661 /* Tab.swift in Sources */,
 				96DA31D02746A8DF009A8497 /* NavigationBar.swift in Sources */,
+				DF4CAA302BEDFD9800B996FF /* ExploreView.swift in Sources */,
 				DF63A55E2BE861FA00351701 /* AngularButtonStyle.swift in Sources */,
 				969A7F0D273331F200D3F594 /* BlobView.swift in Sources */,
 				DF63A5642BE8966B00351701 /* SignInView.swift in Sources */,
+				DF4CAA262BEDA28000B996FF /* CircularView.swift in Sources */,
+				DF4CAA282BEDA63C00B996FF /* CourseSection.swift in Sources */,
 				DF4CAA242BEC69BC00B996FF /* Coin.swift in Sources */,
+				DF4CAA322BEDFF5C00B996FF /* SmallCourseItem.swift in Sources */,
 				96C9A2D12718864400EF979D /* ContentView.swift in Sources */,
 				96246DF82757D28F00D2EA00 /* Course.swift in Sources */,
 				96C9A2CF2718864400EF979D /* DesignCodeiOS15App.swift in Sources */,
 				96246E022763BACD00D2EA00 /* CourseItem.swift in Sources */,
 				96DA31CE2746A6B1009A8497 /* FeaturedItem.swift in Sources */,
 				DF9D551C2BE0E62C00B5B0B1 /* SignUpView.swift in Sources */,
+				DF4CAA2A2BEDA68E00B996FF /* SectionRow.swift in Sources */,
 				96915F20278F317E00A7DC92 /* Animations.swift in Sources */,
 				96246DEE2746B86600D2EA00 /* PreferenceKeys.swift in Sources */,
 				DF63A5602BE872D600351701 /* InputStyle.swift in Sources */,
